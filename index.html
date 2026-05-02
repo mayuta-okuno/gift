@@ -74,6 +74,18 @@ input, textarea {
   box-sizing: border-box;
 }
 
+.form-group {
+  margin-top: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  color: #888;
+}
+  
 .submit-btn {
   margin-top: 20px;
   width: 100%;
@@ -174,14 +186,46 @@ body.modal-open {
 </div>
 
 <!-- 入力 -->
-<input type="text" name="family-name" autocomplete="family-name" placeholder="姓" required>
-<input type="text" name="given-name" autocomplete="given-name" placeholder="名" required>
-<input type="text" name="postal-code" autocomplete="postal-code" placeholder="郵便番号" required>
+<div class="form-group">
+  <label>姓</label>
+  <input type="text" name="family-name" autocomplete="family-name" placeholder="姓" required>
+</div>
+<div class="form-group">
+  <label>名</label>
+ <input type="text" name="given-name" autocomplete="given-name" placeholder="名" required>
+</div>
+<div class="form-group">
+  <label>郵便番号</label>
+  <input type="text" name="postal-code" autocomplete="postal-code" placeholder="郵便番号" required>
+</div>
+<div class="form-group">
+  <label>都道府県</label>
 <input type="text" name="address-level1" autocomplete="address-level1" placeholder="都道府県" required>
+</div>
+<div class="form-group">
+  <label>市区町村</label>
 <input type="text" name="address-level2" autocomplete="address-level2" placeholder="市区町村" required>
-<input type="text" name="address-line1" autocomplete="address-line1" placeholder="番地・建物名・部屋番号等" required>
-<input type="email" name="email" placeholder="メールアドレス" required>
-<textarea name="note" placeholder="備考"></textarea>
+</div>
+<div class="form-group">
+  <label>番地等</label>
+  <input type="text" name="address-line1" autocomplete="address-line1" placeholder="番地等" required>
+</div>
+<div class="form-group">
+  <label>建物名・部屋番号</label>
+  <input type="text" name="address-line2" autocomplete="address-line2" placeholder="建物名・部屋番号等" required>
+</div>
+<div class="form-group">
+  <label>メールアドレス</label>
+  <input type="email" name="email" autocomplete="email" placeholder="メールアドレス" required>
+</div>
+<div class="form-group">
+  <label>電話番号</label>
+  <input type="tel" name="tel" autocomplete="tel" placeholder="電話番号" required>
+</div>
+<div class="form-group">
+  <label>備考</label>
+ <textarea name="note" placeholder="備考"></textarea>
+</div>
 
 <button class="submit-btn">送信する</button>
 
@@ -245,8 +289,10 @@ document.getElementById("giftForm").addEventListener("submit", function(e){
       "entry.531374198": formData.get("email"),
       "entry.1089758164": formData.get("postal-code"),
       "entry.1060944732": formData.get("address-level1"),
-       "entry.370262192": formData.get("address-level2"),
+      "entry.370262192": formData.get("address-level2"),
       "entry.1638755331": formData.get("address-line1"),
+      "entry.1376248401": formData.get("address-line2"),
+      "entry.1743876766": formData.get("tel"),
       "entry.845199153": formData.get("note")
     })
   });
