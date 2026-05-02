@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>引き出物セレクト</title>
+
+<style>
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+}
+
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.item {
+  background: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+button.detail {
+  font-size: 12px;
+  color: #555;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+input[type="radio"] {
+  transform: scale(1.3);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 50px auto;
+  padding: 20px;
+  width: 90%;
+  border-radius: 10px;
+}
+
+.modal img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>GIFT SELECT</h1>
+
+<form id="giftForm">
+
+<!-- 商品① -->
+<div class="item">
+  <img src="C:\Users\mayum\Downloads\A-2.jpg">
+  <div class="item-info">
+    <div class="item-name">Ａコース</div>
+    <button type="button" class="detail" onclick="openModal('modal1')">詳細</button>
+  </div>
+  <input type="radio" name="gift" value="選択肢 1" required>
+</div>
+
+<!-- 商品② -->
+<div class="item">
+  <img src="https://via.placeholder.com/80">
+  <div class="item-info">
+    <div class="item-name">Ｂコース</div>
+    <button type="button" class="detail" onclick="openModal('modal2')">詳細を見る</button>
+  </div>
+  <input type="radio" name="gift" value="選択肢 2" required>
+</div>
+
+<!-- 商品③ -->
+<div class="item">
+  <img src="https://via.placeholder.com/80">
+  <div class="item-info">
+    <div class="item-name">Ｃコース</div>
+    <button type="button" class="detail" onclick="openModal('modal3')">詳細を見る</button>
+  </div>
+  <input type="radio" name="gift" value="選択肢 3" required>
+</div>
+
+
+<!-- 入力 -->
+<input type="text" name="name" placeholder="お名前" required>
+<input type="text" name="address" placeholder="住所" required>
+<input type="email" name="email" placeholder="メールアドレス" required>
+<textarea name="note" placeholder="備考"></textarea>
+
+<button class="submit-btn">送信する</button>
+
+</form>
+
+</div>
+
+<!-- モーダル① -->
+<div id="modal1" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <img src="C:\Users\mayum\Downloads\A-1.jpg">
+    <img src="C:\Users\mayum\Downloads\A-2.jpg">
+    <p>Ａコースの詳細説明です。</p>
+  </div>
+</div>
+
+<!-- モーダル② -->
+<div id="modal2" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <img src="https://via.placeholder.com/300">
+    <p>Ｂコースの詳細説明です。</p>
+  </div>
+</div>
+
+<!-- モーダル③ -->
+<div id="modal3" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <img src="https://via.placeholder.com/300">
+    <p>Ｃコースの詳細説明です。</p>
+  </div>
+</div>
+
+
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(el) {
+  el.style.display = "none";
+}
+
+/* Googleフォーム送信 */
+document.getElementById("giftForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLScUNwFEXDLLVJjdCHG-eDyxwKixYxSiiMey7Q6jikzakyQVuA/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: new URLSearchParams({
+      "entry.1810305746": formData.get("gift"),
+      "entry.1418185268": formData.get("name"),
+      "entry.1638755331": formData.get("address"),
+      "entry.531374198": formData.get("email"),
+      "entry.845199153": formData.get("note")
+    })
+  });
+
+  alert("送信完了しました！");
+});
+</script>
+
+</body>
+</html>
