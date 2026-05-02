@@ -47,7 +47,11 @@ h1 {
 .item-name {
   font-size: 14px;
   margin-bottom: 5px;
-  white-space: nowrap;
+}
+
+input[type="radio"] {
+  transform: scale(1.3);
+  flex-shrink: 0;
 }
 
 button.detail {
@@ -56,11 +60,6 @@ button.detail {
   background: none;
   border: none;
   text-decoration: underline;
-}
-
-input[type="radio"] {
-  transform: scale(1.3);
-  flex-shrink: 0;
 }
 
 input, textarea {
@@ -129,7 +128,7 @@ input, textarea {
   <img src="https://via.placeholder.com/80">
   <div class="item-info">
     <div class="item-name">Ｂコース</div>
-    <button type="button" class="detail" onclick="openModal('modal2')">詳細を見る</button>
+    <button type="button" class="detail" onclick="openModal('modal2')">詳細</button>
   </div>
   <input type="radio" name="gift" value="選択肢 2" required>
 </div>
@@ -139,7 +138,7 @@ input, textarea {
   <img src="https://via.placeholder.com/80">
   <div class="item-info">
     <div class="item-name">Ｃコース</div>
-    <button type="button" class="detail" onclick="openModal('modal3')">詳細を見る</button>
+    <button type="button" class="detail" onclick="openModal('modal3')">詳細</button>
   </div>
   <input type="radio" name="gift" value="選択肢 3" required>
 </div>
