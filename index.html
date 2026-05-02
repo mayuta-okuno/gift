@@ -174,8 +174,12 @@ body.modal-open {
 </div>
 
 <!-- 入力 -->
-<input type="text" name="name" placeholder="お名前" required>
-<input type="text" name="address" placeholder="住所" required>
+<input type="text" name="family-name" autocomplete="family-name" placeholder="姓" required>
+<input type="text" name="given-name" autocomplete="given-name" placeholder="名" required>
+<input type="text" name="postal-code" autocomplete="postal-code" placeholder="郵便番号" required>
+<input type="text" name="address-level1" autocomplete="address-level1" placeholder="都道府県" required>
+<input type="text" name="address-level2" autocomplete="address-level2" placeholder="市区町村" required>
+<input type="text" name="address-line1" autocomplete="address-line1" placeholder="番地・建物名・部屋番号等" required>
 <input type="email" name="email" placeholder="メールアドレス" required>
 <textarea name="note" placeholder="備考"></textarea>
 
@@ -236,9 +240,13 @@ document.getElementById("giftForm").addEventListener("submit", function(e){
     mode: "no-cors",
     body: new URLSearchParams({
       "entry.1810305746": formData.get("gift"),
-      "entry.1418185268": formData.get("name"),
-      "entry.1638755331": formData.get("address"),
+      "entry.1418185268": formData.get("family-name"),
+      "entry.1480159621": formData.get("given-name"),
       "entry.531374198": formData.get("email"),
+      "entry.1089758164": formData.get("postal-code"),
+      "entry.1060944732": formData.get("address-level1"),
+       "entry.370262192": formData.get("address-level2"),
+      "entry.1638755331": formData.get("address-line1"),
       "entry.845199153": formData.get("note")
     })
   });
