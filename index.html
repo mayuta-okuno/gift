@@ -615,11 +615,26 @@ body.modal-open {
 <script>
 function openModal(id) {
   document.getElementById(id).style.display = "block";
+  document.body.classList.add("modal-open");
 }
 
-function closeModal(el) {
-  el.style.display = "none";
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+  document.body.classList.remove("modal-open");
 }
+
+/* 背景クリックで閉じる */
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", function(e) {
+
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.classList.remove("modal-open");
+    }
+
+  });
+});
+
 
 /* Googleフォーム送信 */
 document.getElementById("giftForm").addEventListener("submit", function(e){
