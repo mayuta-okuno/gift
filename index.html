@@ -66,14 +66,15 @@ h1 {
 }
   
 /* ラジオ */
-.input[type="radio"] {
+input[type="radio"] {
   width: auto;
   margin: 0;
   transform: scale(1.2);
   flex-shrink: 0;
 }
 
-button.detail {
+.detail {
+  margin-left: 28px;
   font-size: 12px;
   color: #555;
   background: none;
@@ -239,10 +240,10 @@ body.modal-open {
       <div class="item-name">
         桜干しコース
       </div>
+    </div>
       <button type="button" class="detail" onclick="openModal('modal1')">
         詳細を見る
       </button>
-    </div>
   </div>
 </div>
 
@@ -252,10 +253,12 @@ body.modal-open {
   <img src="himono.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift2">
 
       <div class="item-name">干物コース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal2')">
         詳細を見る
       </button>
@@ -268,10 +271,12 @@ body.modal-open {
   <img src="oil-sardine.jpg">
 
   <div class="item-info">
-    <input type="radio" name="gift" value="gift3">
+
+    <div class="title-row">
+      <input type="radio" name="gift" value="gift3">
 
       <div class="item-name">オイルサーディンコース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal3')">
         詳細を見る
       </button>
@@ -284,10 +289,12 @@ body.modal-open {
   <img src="inemankai.jpg">
 
   <div class="item-info">
-    <input type="radio" name="gift" value="gift4">
+
+    <div class="title-row">
+         <input type="radio" name="gift" value="gift4">
 
       <div class="item-name">伊根満開コース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal4')">
         詳細を見る
       </button>
@@ -300,10 +307,12 @@ body.modal-open {
   <img src="yosamusume.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift5">
 
       <div class="item-name">与謝娘コース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal5')">
         詳細を見る
       </button>
@@ -316,10 +325,12 @@ body.modal-open {
   <img src="beer.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift6">
 
       <div class="item-name">クラフトビールコース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal6')">
         詳細を見る
       </button>
@@ -332,10 +343,12 @@ body.modal-open {
   <img src="wine.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift7">
 
       <div class="item-name">ワインコース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal7')">
         詳細を見る
       </button>
@@ -348,10 +361,12 @@ body.modal-open {
   <img src="crunch.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift8">
 
       <div class="item-name">クランチチョココース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal8')">
         詳細を見る
       </button>
@@ -364,10 +379,12 @@ body.modal-open {
   <img src="utsuwa.jpg">
 
   <div class="item-info">
+    <div class="title-row">
+     
     <input type="radio" name="gift" value="gift9">
 
       <div class="item-name">暮らしの器コース</div>
-
+</div>
       <button type="button" class="detail" onclick="openModal('modal9')">
         詳細を見る
       </button>
