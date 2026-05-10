@@ -6,7 +6,7 @@
 <title>GIFT SELECT</title>
 
 <style>
-.body {
+body {
   font-family: "Helvetica Neue", "Noto Sans JP", sans-serif;
   margin: 0;
   background: #f7f7f7;
@@ -18,7 +18,7 @@
   margin: auto;
 }
 
-.h1 {
+h1 {
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -58,7 +58,7 @@
 }
 
 /* ラジオ */
-.item-label input[type="radio"] {
+.input[type="radio"] {
   transform: scale(1.2);
   flex-shrink: 0;
 }
@@ -145,6 +145,12 @@ input, textarea {
   box-sizing: border-box;
 
   -webkit-overflow-scrolling: touch;
+
+  pointer-events: auto;
+}
+
+.modal {
+  pointer-events: auto;
 }
 
 
@@ -204,12 +210,6 @@ body.modal-open {
 <div class="container">
 
 <h1>GIFT SELECT</h1>
-  <h2>メインタイトル</h2>
-  <h3>メインタイトル</h3>
-  <h4>メインタイトル</h4>
-  <h5>メインタイトル</h5>
-  <h6>メインタイトル</h6>
-<p>ここに本文が表示されます。</p>
 
 <p class="description">
 私たちらしさ、そして宮津らしさを感じていただけるギフトをご用意しました。<br>
