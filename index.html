@@ -104,48 +104,98 @@ input, textarea {
   cursor: pointer;
 }
 
-/* モーダル */
+/* モーダル全体 */
 .modal {
   display: none;
+
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
   background: rgba(0,0,0,0.6);
-　z-index: 1000;
+
+  z-index: 1000;
+
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* モーダル中身 */
 .modal-content {
   background: #fff;
-  margin: 50px auto;
-  padding: 20px;
+
   width: 90%;
-  border-radius: 10px;
+  max-width: 500px;
+
+  margin: 0 auto;
+  margin-top: 40px;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
   position: relative;
-  max-height: 80vh;      /* ← 高さ制限 */
-  overflow-y: auto;      /* ← スクロール可能 */
+
+  max-height: 85vh;
+  overflow-y: auto;
+
+  box-sizing: border-box;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* タイトル */
+.modal-header h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* モーダル画像 */
+.modal img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* 説明 */
+.modal-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
 }
 
 /* ✕ボタン */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 25px;
+
+  top: 12px;
+  right: 12px;
+
+  width: 32px;
+  height: 32px;
+
   border: none;
-  background: #fff;
-  color: #000;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.9);
+
+  color: #333;
+
+  font-size: 22px;
+  line-height: 1;
+
   cursor: pointer;
 }
 
-/* 背景スクロール止める */
+/* 背景スクロール停止 */
 body.modal-open {
   overflow: hidden;
 }
 
-.modal img {
-  width: 100%;
-  margin-bottom: 10px;
-}
 </style>
 </head>
 
@@ -169,40 +219,168 @@ body.modal-open {
   
 <form id="giftForm">
 
-<!-- 商品① -->
+
+<!-- 桜干しコース -->
 <div class="item">
-  <img src="A-2.jpg">
-    <div class="text-block">
-      <div class="item-info">
-  <input type="radio" name="gift" value="giftA" required>
-    <div class="item-name">Ａコース</div>
-    <button type="button" class="detail" onclick="openModal('modal1')">詳細を見る</button>
+  <img src="sakuraboshi.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift1" required>
+
+    <div>
+      <div class="item-name">桜干しコース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal1')">
+        詳細を見る
+      </button>
     </div>
-</div>
-</div>
-<!-- 商品② -->
-<div class="item">
-  <img src="B-1.jpg">
-    <div class="text-block">
-      <div class="item-info">
-  <input type="radio" name="gift" value="giftB" required>
-    <div class="item-name">Ｂコース</div>
-    <button type="button" class="detail" onclick="openModal('modal2')">詳細を見る</button>
   </div>
-</div>
 </div>
 
-<!-- 商品③ -->
+
+<!-- 干物コース -->
 <div class="item">
-  <img src="https://via.placeholder.com/80">
-    <div class="text-block">
-      <div class="item-info">
-  <input type="radio" name="gift" value="giftC" required>
-    <div class="item-name">Ｃコース</div>
-    <button type="button" class="detail" onclick="openModal('modal3')">詳細を見る</button>
+  <img src="himono.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift2">
+
+    <div>
+      <div class="item-name">干物コース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal2')">
+        詳細を見る
+      </button>
+    </div>
   </div>
 </div>
+
+
+<!-- オイルサーディンコース -->
+<div class="item">
+  <img src="oil-sardine.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift3">
+
+    <div>
+      <div class="item-name">オイルサーディンコース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal3')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
 </div>
+
+
+<!-- 伊根満開コース -->
+<div class="item">
+  <img src="inemankai.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift4">
+
+    <div>
+      <div class="item-name">伊根満開コース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal4')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- 与謝娘コース -->
+<div class="item">
+  <img src="yosamusume.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift5">
+
+    <div>
+      <div class="item-name">与謝娘コース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal5')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- クラフトビールコース -->
+<div class="item">
+  <img src="beer.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift6">
+
+    <div>
+      <div class="item-name">クラフトビールコース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal6')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ワインコース -->
+<div class="item">
+  <img src="wine.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift7">
+
+    <div>
+      <div class="item-name">ワインコース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal7')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- クランチチョココース -->
+<div class="item">
+  <img src="crunch.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift8">
+
+    <div>
+      <div class="item-name">クランチチョココース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal8')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- 暮らしの器コース -->
+<div class="item">
+  <img src="utsuwa.jpg">
+
+  <div class="item-info">
+    <input type="radio" name="gift" value="gift9">
+
+    <div>
+      <div class="item-name">暮らしの器コース</div>
+
+      <button type="button" class="detail" onclick="openModal('modal9')">
+        詳細を見る
+      </button>
+    </div>
+  </div>
+</div>
+
 
 <!-- 入力 -->
 <div class="form-group">
