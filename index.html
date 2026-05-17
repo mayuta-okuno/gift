@@ -199,7 +199,7 @@ textarea::placeholder {
 
 /* ✕ボタン */
 .close-btn {
-  position: absolute;
+  position: fixed;
 
   width: 32px;
   height: 32px;
@@ -215,6 +215,8 @@ textarea::placeholder {
   line-height: 1;
 
   cursor: pointer;
+  
+  z-index: 2000;
 }
 
 /* 右上 */
@@ -480,7 +482,7 @@ body.modal-open {
       宮津名物の桜干しをお楽しみいただけるコースです。<br>
       素材の旨みが詰まった干物をぜひご賞味ください。</div>
 
-    <button class="close-btn close-bottom" onclick="closeModal('modal1')">×</button>
+    <button class="close-btn close-bottom" onclick="closeModal('modal1')">閉じる</button>
 
   </div>
 </div>
