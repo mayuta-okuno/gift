@@ -894,36 +894,38 @@ document.querySelectorAll(".modal").forEach(modal => {
 
 
 /* Googleフォーム送信 */
-document.getElementById("giftForm").addEventListener("submit", function(e){
+document.getElementById("giftForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const formData = new FormData(this);
-  
+
   const submitBtn = document.querySelector(".submit-btn");
   submitBtn.disabled = true;
   submitBtn.textContent = "送信中...";
 
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLScUNwFEXDLLVJjdCHG-eDyxwKixYxSiiMey7Q6jikzakyQVuA/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    body: new URLSearchParams({
-      "entry.1810305746": formData.get("gift"),
-      "entry.1418185268": formData.get("family-name"),
-      "entry.1480159621": formData.get("given-name"),
-      "entry.531374198": formData.get("email"),
-      "entry.1089758164": formData.get("postal-code"),
-      "entry.1060944732": formData.get("address-level1"),
-      "entry.370262192": formData.get("address-level2"),
-      "entry.1638755331": formData.get("address-line1"),
-      "entry.1376248401": formData.get("address-line2"),
-      "entry.1743876766": formData.get("tel"),
-      "entry.845199153": formData.get("note")
-  })
-})
-.then(() => {
-  window.location.href = "thanks.html";
-});
-
+  fetch(
+    "https://docs.google.com/forms/d/e/1FAIpQLScUNwFEXDLLVJjdCHG-eDyxwKixYxSiiMey7Q6jikzakyQVuA/formResponse",
+    {
+      method: "POST",
+      mode: "no-cors",
+      body: new URLSearchParams({
+        "entry.1810305746": formData.get("gift"),
+        "entry.1418185268": formData.get("family-name"),
+        "entry.1480159621": formData.get("given-name"),
+        "entry.531374198": formData.get("email"),
+        "entry.1089758164": formData.get("postal-code"),
+        "entry.1060944732": formData.get("address-level1"),
+        "entry.370262192": formData.get("address-level2"),
+        "entry.1638755331": formData.get("address-line1"),
+        "entry.1376248401": formData.get("address-line2"),
+        "entry.1743876766": formData.get("tel"),
+        "entry.845199153": formData.get("note")
+      })
+    }
+  )
+  .then(() => {
+    window.location.href = "thanks.html";
+  });
 });
 </script>
 </body>
