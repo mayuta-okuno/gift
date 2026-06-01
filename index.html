@@ -898,8 +898,10 @@ document.getElementById("giftForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   const formData = new FormData(this);
-
-
+  
+  const submitBtn = document.querySelector(".submit-btn");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "送信中...";
 
   fetch("https://docs.google.com/forms/d/e/1FAIpQLScUNwFEXDLLVJjdCHG-eDyxwKixYxSiiMey7Q6jikzakyQVuA/formResponse", {
     method: "POST",
@@ -916,11 +918,9 @@ document.getElementById("giftForm").addEventListener("submit", function(e){
       "entry.1376248401": formData.get("address-line2"),
       "entry.1743876766": formData.get("tel"),
       "entry.845199153": formData.get("note")
-    })
-  });
-
-  alert("送信完了しました！");
-});
+    }).then(() => {
+      window.location.href = "thanks.html";
+    });
 </script>
 
 </body>
